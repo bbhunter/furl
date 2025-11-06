@@ -9,14 +9,14 @@
   <a href="https://pypi.python.org/pypi/furl"><img src="https://img.shields.io/pypi/pyversions/furl.svg"></a>
 </p>
 
-## furl is a small Python library that makes parsing and<br>manipulating URLs easy.
+## furl is a small Python library that makes parsing and<br>modifying URLs easy.
 
 Python's standard
 [urllib](https://docs.python.org/3/library/urllib.html) and
 [urlparse](https://docs.python.org/3/library/urllib.parse.html) modules
 provide a number of URL related functions, but using these functions to
 perform common URL operations proves tedious. Furl makes parsing and
-manipulating URLs easy.
+modifying URLs easy.
 
 Furl is well tested, [Unlicensed](http://unlicense.org/) in the public
 domain, and supports Python 3 and PyPy3.
@@ -87,13 +87,13 @@ $ pip install furl
   * [Basics](#basics)
   * [Scheme, Username, Password, Host, Port, Network Location, and Origin](#scheme-username-password-host-port-network-location-and-origin)
   * [Path](#path)
-    * [Manipulation](#manipulation)
+    * [Modification](#modification)
   * [Query](#query)
-    * [Manipulation](#manipulation-1)
+    * [Modification](#modification-1)
     * [Parameters](#parameters)
   * [Fragment](#fragment)
   * [Encoding](#encoding)
-  * [Inline manipulation](#inline-manipulation)
+  * [Inline modification](#inline-modification)
   * [Miscellaneous](#miscellaneous)
 
 
@@ -175,10 +175,10 @@ including __port__ if it's None or the default port for the provided __scheme__.
 
 ### Path
 
-URL paths in furl are Path objects that have __segments__, a list of zero or
-more path segments that can be manipulated directly. Path segments in
-__segments__ are percent-decoded and all interaction with __segments__ should
-take place with percent-decoded strings.
+URL paths in furl are Path objects that have __segments__, a list of
+zero or more path segments that can be modified directly. Path segments
+in __segments__ are percent-decoded and all interaction with
+__segments__ should take place with percent-decoded strings.
 
 ```python
 >>> f = furl('http://www.google.com/a/large%20ish/path')
@@ -190,7 +190,7 @@ Path('/a/large ish/path')
 '/a/large%20ish/path'
 ```
 
-#### Manipulation
+#### Modification
 
 ```python
 >>> f.path.segments = ['a', 'new', 'path', '']
@@ -345,7 +345,7 @@ omdict1D([('one', '1'), ('two', '2')])
 True
 ```
 
-#### Manipulation
+#### Modification
 
 __params__ is a one dimensional
 [ordered multivalue dictionary](https://github.com/gruns/orderedmultidict) that
@@ -480,7 +480,7 @@ Query('with=params')
 True
 ```
 
-Manipulation of Fragments is done via the Fragment's Path and Query instances,
+Modification of Fragments is done via the Fragment's Path and Query instances,
 __path__ and __query__.
 
 ```python
@@ -598,10 +598,10 @@ can be used to percent-encode and percent-decode query strings.
 
 
 
-### Inline manipulation
+### Inline modification
 
-For quick, single-line URL manipulation, the __add()__, __set()__, and
-__remove()__ methods of furl objects manipulate various URL components and
+For quick, single-line URL modifications, the __add()__, __set()__, and
+__remove()__ methods of furl objects modify various URL components and
 return the furl object for method chaining.
 
 ```python
